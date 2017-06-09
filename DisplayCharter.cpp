@@ -149,11 +149,11 @@ int DisplayCharter::GetPixelColor(int i){
 
   return color;
 }
-void DisplayCharter::Display(Adafruit_DotStar &dotstar){
-  dotstar.setBrightness(brightness);
-  
+void DisplayCharter::Display(Adafruit_DotStar &dotstar){ 
   for (byte i=0 ; i<RING_LEDCOUNT ; i++)
     dotstar.setPixelColor((i + offset) % RING_LEDCOUNT, GetPixelColor(i));
+
+  dotstar.setBrightness(brightness);
    
   if (whirlSpeed){
     if (!--whirlTick){
