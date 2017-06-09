@@ -16,11 +16,15 @@ void DisplayCharter::Init(){
   whirlSpeed = 0;
   morphPeriod = 0;
   morphingState = 0;
+  brightness = 255;
 }
 void DisplayCharter::SetLeds(byte pos, byte count, unsigned int color){
  for (byte i=0 ; i<count ; i++){
    ledColor[(pos + i) % RING_LEDCOUNT] = color;
  }
+}
+void DisplayCharter::SetBrightness(int b) {
+  brightness = b;
 }
 void DisplayCharter::SetBackground(String color){
   if (color.length() == 6){
@@ -146,6 +150,8 @@ int DisplayCharter::GetPixelColor(int i){
   return color;
 }
 void DisplayCharter::Display(Adafruit_DotStar &dotstar){
+  dotstar.setBrightness(brightness);
+  
   for (byte i=0 ; i<RING_LEDCOUNT ; i++)
     dotstar.setPixelColor((i + offset) % RING_LEDCOUNT, GetPixelColor(i));
    

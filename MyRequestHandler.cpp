@@ -328,6 +328,22 @@ void MyFunctionRequestHandler::apiHandler(ESP8266WebServer& server) {
     }
   }
 
+  if (server.hasArg(F("top_brightness"))) {
+    int brightness = server.arg(F("top_brightness")).toInt();
+    
+    if (brightness >= 0 && brightness < 256) {
+      mpDisplayUpperRing->SetBrightness(brightness);
+    }
+  }
+
+  if (server.hasArg(F("bottom_brightness"))) {
+    int brightness = server.arg(F("bottom_brightness")).toInt();
+
+    if (brightness >= 0 && brightness < 256) {
+      mpDisplayLowerRing->SetBrightness(brightness);
+    }
+  }
+
   // to quickly set the RGB colors of the logo remotely
   if (server.hasArg(F("logoled"))) {
     byte led = byte(server.arg(F("logoled")).toInt());

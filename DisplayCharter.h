@@ -11,6 +11,7 @@ class DisplayCharter
     void Init();
     void SetLeds(byte pos, byte count, unsigned int color);
     void SetBackground(String color);
+    void SetBrightness(int b);
     void SetWhirl(byte wspeed, bool clockwise);
     void SetMorph(int period, byte mspeed);
     unsigned int ParseLedArg(String argument, unsigned int iPos);
@@ -24,6 +25,7 @@ class DisplayCharter
   private:
     unsigned int ledColor[RING_LEDCOUNT];
     unsigned int backgroundColor;
+    int brightness;
     byte whirlSpeed;
     bool whirlClockwise;
     byte offset;
