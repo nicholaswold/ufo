@@ -27,9 +27,9 @@ boolean debug = true;
 #include <StreamString.h>
 #include "DisplayCharter.h"
 #include "MyRequestHandler.h"
-#include "DataPolling.h"
+#include "Datapolling.h"
 #include "Config.h"
-#include "defines.h"
+#include "Defines.h"
 
 //-------------------------------------------------------------------------------------------------------------------------
 

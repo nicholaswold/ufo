@@ -1,4 +1,4 @@
-#include "config.h"
+#include "Config.h"
 #include <FS.h>
 #include <ArduinoJson.h>
 
